@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ValidateurComponent implements OnInit {
 
   test: string;
+  test2: Number;
   constructor() { }
 
   ngOnInit() {
