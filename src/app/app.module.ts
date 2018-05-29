@@ -11,6 +11,9 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { DemandeComponent } from './demande/demande.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
 
 @NgModule({
@@ -22,12 +25,19 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
     AdminComponent,
     SignInComponent,
     DemandeComponent,
-    SignUpComponent
+    SignUpComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
