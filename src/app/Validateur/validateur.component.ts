@@ -11,7 +11,7 @@ export class ValidateurComponent implements OnInit {
   test2: Number;
 
   constructor() {
-    this.test = 'test from salah branch';
+    this.test = 'test from salah branch2';
    }
 
   ngOnInit() {
