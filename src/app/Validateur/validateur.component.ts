@@ -9,7 +9,10 @@ export class ValidateurComponent implements OnInit {
 
   test: string;
   test2: Number;
-  constructor() { }
+
+  constructor() {
+    this.test = 'test from salah branch';
+   }
 
   ngOnInit() {
   }
