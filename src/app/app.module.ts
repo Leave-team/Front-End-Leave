@@ -14,14 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-<<<<<<< HEAD
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
-  MatFormFieldModule, MatInputModule, MatNativeDateModule, MatDatepickerModule
-} from '@angular/material';
-
-=======
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
-import { RouterModule ,Routes } from '@angular/router';
+import { RouterModule , Routes } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
@@ -36,7 +30,6 @@ const appRoutes: Routes = [
   { path: 'listvals', component: ValidateurComponent },
   { path: 'listcollabs', component: CollaborateurComponent }
 ];
->>>>>>> 1ee7c3e9fad5f088202313d7b5d04ffaf073fd57
 
 @NgModule({
   declarations: [
@@ -63,15 +56,8 @@ const appRoutes: Routes = [
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
-<<<<<<< HEAD
-    MatNativeDateModule,
-    MatDatepickerModule
-=======
     MatTableModule,
-    MatMenuModule,
-    RouterModule.forRoot(appRoutes)
-    
->>>>>>> 1ee7c3e9fad5f088202313d7b5d04ffaf073fd57
+    MatMenuModule
   ],
   providers: [DemandeService],
   bootstrap: [AppComponent]
