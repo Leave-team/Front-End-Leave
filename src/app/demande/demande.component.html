@@ -1,3 +1,45 @@
-<p>
-  demande works!
-</p>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let demande"> {{demande.description}} </td>
+      </ng-container>
+  
+      <!-- dateDebut Column -->
+      <ng-container matColumnDef="dateDebut">
+        <th mat-header-cell *matHeaderCellDef> Date début </th>
+        <td mat-cell *matCellDef="let demande"> {{demande.dateDebut}} </td>
+      </ng-container>
+  
+      <!-- dateFin Column -->
+      <ng-container matColumnDef="dateFin">
+        <th mat-header-cell *matHeaderCellDef> Date fin </th>
+        <td mat-cell *matCellDef="let demande"> {{demande.dateFin}} </td>
+      </ng-container>
+  
+      <!-- nbrJours Column -->
+      <ng-container matColumnDef="nombreJours">
+        <th mat-header-cell *matHeaderCellDef> Nombre de jours </th>
+        <td mat-cell *matCellDef="let demande"> {{demande.nombreJours}} </td>
+      </ng-container>
+
+      <!-- decision Column -->
+      <ng-container matColumnDef="decision">
+          <th mat-header-cell *matHeaderCellDef> Décision </th>
+          <td mat-cell *matCellDef="let demande"> {{demande.decision}} </td>
+        </ng-container>
+
+        <!-- motif Column -->
+      <ng-container matColumnDef="motifRefus">
+          <th mat-header-cell *matHeaderCellDef> Motif de refus </th>
+          <td mat-cell *matCellDef="let demande"> {{demande.motifRefus}} </td>
+        </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <br>
+     <button class='button' mat-raised-button color="primary" >Nouvelle demande</button>
