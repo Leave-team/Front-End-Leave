@@ -13,14 +13,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
-import { Routes } from '@angular/router';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
+  MatFormFieldModule, MatInputModule, MatNativeDateModule, MatDatepickerModule
+} from '@angular/material';
 
-const appRoutes: Routes = [
-  { path: 'demande', component: DemandeComponent },
-  { path: 'accueil', component: HomeComponent },
-  { path: 'login', component: SignInComponent }
-];
 
 @NgModule({
   declarations: [
@@ -43,7 +39,11 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
