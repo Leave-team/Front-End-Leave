@@ -14,13 +14,21 @@ import { DemandeService } from '../services/demande/demande.service';
 })
 export class DemandeComponent implements OnInit {
 
+  demandes: IDemande[];
+
   dataSource = new DemandeDataSource(this.demandeService);
   displayedColumns = ['description', 'dateDebut', 'dateFin', 'nombreJours', 'decision', 'motifRefus'];
 
   constructor(private demandeService: DemandeService){}
   ngOnInit() {}
+
 }
 
+
+
+
+
+//Populate the DataTable
 export class DemandeDataSource extends DataSource<any> {
   constructor(private demandeService: DemandeService) {
     super();
