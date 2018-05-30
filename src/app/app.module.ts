@@ -14,7 +14,13 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { Routes } from '@angular/router';
 
+const appRoutes: Routes = [
+  { path: 'demande', component: DemandeComponent },
+  { path: 'accueil', component: HomeComponent },
+  { path: 'login', component: SignInComponent }
+];
 
 @NgModule({
   declarations: [
