@@ -5,12 +5,12 @@
   </mat-card-title>    
   
   <mat-card-content>    
-      <form>    
+    <form [formGroup]="formDemande" (submit)="createDemande(formDemande.value)">    
           <table>    
               <tr>    
                   <td colspan="2">    
                       <mat-form-field class="demo-full-width">    
-                          <input matInput placeholder="Description">    
+                          <input matInput placeholder="Description" formControlName="description">    
                       </mat-form-field>    
                   </td>
               </tr> 
@@ -19,14 +19,14 @@
               <tr>    
                 <td>    
                     <mat-form-field class="demo-full-width">    
-                        <input matInput [matDatepicker]="pickerDebut" placeholder="Date début">    
+                        <input matInput [matDatepicker]="pickerDebut" placeholder="Date début" formControlName="dateDebut">    
                         <mat-datepicker-toggle matSuffix [for]="pickerDebut"></mat-datepicker-toggle>    
                         <mat-datepicker touchUi="true" #pickerDebut></mat-datepicker>    
                     </mat-form-field>    
                 </td>
                 <td>    
                   <mat-form-field class="demo-full-width">    
-                      <input matInput [matDatepicker]="pickerFin" placeholder="Date fin">    
+                      <input matInput [matDatepicker]="pickerFin" placeholder="Date fin" formControlName="dateFin">    
                       <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>    
                       <mat-datepicker touchUi="true" #pickerFin></mat-datepicker>    
                   </mat-form-field>    
@@ -36,13 +36,13 @@
             <tr>    
               <td colspan="2">    
                   <mat-form-field class="demo-full-width">    
-                      <input type="number" matInput placeholder="Nombre de jours">    
+                      <input type="number" matInput placeholder="Nombre de jours"formControlName="nombreJours">    
                   </mat-form-field>    
               </td>
-          </tr> 
+            </tr>
               <tr>    
                   <td colspan="2" class="content-center">    
-                      <button class="button" mat-raised-button routerLink="/listdemandes" color="primary">Envoyer</button>
+                      <button type="submit" class="button" mat-raised-button color="primary" [disabled]="!formDemande.valid" >Envoyer</button>
                   </td>    
               </tr>    
           </table>    

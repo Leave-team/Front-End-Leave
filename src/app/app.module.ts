@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormDemandeComponent } from './form-demande/form-demande.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -72,7 +73,9 @@ const appRoutes: Routes = [
     MatRadioModule,
     MatSelectModule,
     MatOptionModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DemandeService],
   bootstrap: [AppComponent]

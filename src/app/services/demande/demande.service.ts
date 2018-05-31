@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders }   from '@angular/common/http';
 import { Observable, of  }   from 'rxjs';
 import 'rxjs/add/operator/map';
 import { throwError } from 'rxjs';
-import { IDemande } from '../../models/demande';
+import { Demande } from '../../models/demande';
 import { catchError, map, tap, retry } from 'rxjs/operators';
 
 const httpOptions = {
@@ -22,28 +22,30 @@ export class DemandeService {
 
   
   //Population du tableaux de demandes.
-  getDemande(): Observable<IDemande[]> {
-    return this.http.get<IDemande[]>(this.serviceUrl);
+  getDemande(): Observable<Demande[]> {
+    return this.http.get<Demande[]>(this.serviceUrl);
   }
 
 
   //Méthode pour ajouter une nouvelle demande.
-  createDemande(demande: IDemande): Observable<IDemande> {
-    return this.http.post<IDemande>(this.serviceUrl, demande, httpOptions);
+  createDemande(demande): Observable<Demande> {
+    let body = JSON.stringify(demande);
+    return this.http.post<Demande>(this.serviceUrl, body, httpOptions);
   }
 
 
   //Méthode pour supprimer la demande.
-  deleteDemande (demande: IDemande | number): Observable<IDemande> {
+  deleteDemande (demande): Observable<Demande> {
     const id = typeof demande === 'number' ? demande : demande.id;
     const url = `${this.serviceUrl}/${id}`;
-    return this.http.delete<IDemande>(url, httpOptions)
+    return this.http.delete<Demande>(url, httpOptions)
   }
 
 
   //Mettre à jour la demande.
-  updateDemande (demande: IDemande): Observable<any> {
-    return this.http.put(this.serviceUrl, demande, httpOptions);
+  updateDemande (demande): Observable<any> {
+    let body = JSON.stringify(demande);
+    return this.http.put(this.serviceUrl, body, httpOptions);
   }
 
 

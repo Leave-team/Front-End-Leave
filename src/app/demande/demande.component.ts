@@ -3,7 +3,7 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
 import 'rxjs/add/observable/of';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from "rxjs/observable";
-import { IDemande } from '../models/demande';
+import { Demande } from '../models/demande';
 import { DemandeService } from '../services/demande/demande.service';
 
 
@@ -14,7 +14,7 @@ import { DemandeService } from '../services/demande/demande.service';
 })
 export class DemandeComponent implements OnInit {
 
-  demandes: IDemande[];
+  demandes: Demande[];
 
   dataSource = new DemandeDataSource(this.demandeService);
   displayedColumns = ['description', 'dateDebut', 'dateFin', 'nombreJours', 'decision', 'motifRefus'];
@@ -35,7 +35,11 @@ export class DemandeDataSource extends DataSource<any> {
   }
 
 
-  connect(): Observable<IDemande[]> {
+  connect(): Observable<Demande[]> {
+
+
+     console.log(new Date());
+     console.log(new Date().toISOString().substring(0, 10));
     return this.demandeService.getDemande();
   }
 
