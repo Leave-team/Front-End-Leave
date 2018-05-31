@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Demande } from '../models/demande';
 import { DemandeService } from '../services/demande/demande.service';
 import {Observable} from 'rxjs/Rx';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-form-demande',
@@ -12,7 +13,7 @@ import {Observable} from 'rxjs/Rx';
 export class FormDemandeComponent implements OnInit {
 
    demande: Demande;
-
+  
   formDemande = new FormGroup({
     description: new FormControl('',[Validators.required]),
     dateDebut: new FormControl([Validators.required]),
@@ -20,7 +21,7 @@ export class FormDemandeComponent implements OnInit {
     nombreJours: new FormControl(null,[Validators.required])
   });
 
-  constructor(private demandeService : DemandeService) { }
+  constructor(private demandeService : DemandeService, public snackBar: MatSnackBar ) { }
 
   ngOnInit() {
   }
@@ -30,6 +31,13 @@ export class FormDemandeComponent implements OnInit {
     this.demande= new Demande(formDemande);
     console.log(this.demande);
     this.demandeService.createDemande(this.demande).subscribe();
-    
   }
+
+  popUpOk(message: string, action='Succès' ) {
+    this.snackBar.open(message+ 'ajoutée', action, {
+      duration: 2000,
+    });
+  }
+
+
 }

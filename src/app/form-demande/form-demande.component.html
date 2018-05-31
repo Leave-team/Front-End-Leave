@@ -10,7 +10,7 @@
               <tr>    
                   <td colspan="2">    
                       <mat-form-field class="demo-full-width">    
-                          <input matInput placeholder="Description" formControlName="description">    
+                          <input matInput placeholder="Description" formControlName="description" #message>    
                       </mat-form-field>    
                   </td>
               </tr> 
@@ -42,7 +42,7 @@
             </tr>
               <tr>    
                   <td colspan="2" class="content-center">    
-                      <button type="submit" class="button" mat-raised-button color="primary" [disabled]="!formDemande.valid" >Envoyer</button>
+                      <button type="submit" class="button" mat-raised-button color="primary" [disabled]="!formDemande.valid" (click)="popUpOk(message.value)" >Envoyer</button>
                   </td>    
               </tr>    
           </table>    

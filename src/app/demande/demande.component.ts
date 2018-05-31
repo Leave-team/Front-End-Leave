@@ -17,7 +17,7 @@ export class DemandeComponent implements OnInit {
   demandes: Demande[];
 
   dataSource = new DemandeDataSource(this.demandeService);
-  displayedColumns = ['description', 'dateDebut', 'dateFin', 'nombreJours', 'decision', 'motifRefus'];
+  displayedColumns = ['description', 'dateDebut', 'dateFin', 'nombreJours', 'decision', 'motifRefus', 'actions'];
 
   constructor(private demandeService: DemandeService){}
   ngOnInit() {}
