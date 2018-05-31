@@ -14,12 +14,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatDatepickerModule, MatNativeDateModule, MatRadioModule, MatSelectModule, MatOptionModule, MatSlideToggleModule } from '@angular/material';
 import { RouterModule , Routes } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
+import { FormDemandeComponent } from './form-demande/form-demande.component';
 
 
 
@@ -28,7 +29,7 @@ const appRoutes: Routes = [
   { path: 'accueil', component: HomeComponent },
   { path: 'login', component: SignInComponent },
   { path: 'listvals', component: ValidateurComponent },
-  { path: 'listcollabs', component: CollaborateurComponent }
+  { path: 'listcollabs', component: CollaborateurComponent },
 ];
 
 @NgModule({
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     SignInComponent,
     DemandeComponent,
     SignUpComponent,
-    NavbarComponent
+    NavbarComponent,
+    FormDemandeComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,20 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    MatMenuModule
+    MatMenuModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatSlideToggleModule
   ],
   providers: [DemandeService],
   bootstrap: [AppComponent]

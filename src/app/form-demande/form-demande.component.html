@@ -1,0 +1,51 @@
+<mat-card>    
+     
+  <mat-card-title>    
+      Données de la demande congè    
+  </mat-card-title>    
+  
+  <mat-card-content>    
+      <form>    
+          <table>    
+              <tr>    
+                  <td colspan="2">    
+                      <mat-form-field class="demo-full-width">    
+                          <input matInput placeholder="Description">    
+                      </mat-form-field>    
+                  </td>
+              </tr> 
+              
+              
+              <tr>    
+                <td>    
+                    <mat-form-field class="demo-full-width">    
+                        <input matInput [matDatepicker]="pickerDebut" placeholder="Date début">    
+                        <mat-datepicker-toggle matSuffix [for]="pickerDebut"></mat-datepicker-toggle>    
+                        <mat-datepicker touchUi="true" #pickerDebut></mat-datepicker>    
+                    </mat-form-field>    
+                </td>
+                <td>    
+                  <mat-form-field class="demo-full-width">    
+                      <input matInput [matDatepicker]="pickerFin" placeholder="Date fin">    
+                      <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>    
+                      <mat-datepicker touchUi="true" #pickerFin></mat-datepicker>    
+                  </mat-form-field>    
+              </td> 
+            </tr>
+
+            <tr>    
+              <td colspan="2">    
+                  <mat-form-field class="demo-full-width">    
+                      <input type="number" matInput placeholder="Nombre de jours">    
+                  </mat-form-field>    
+              </td>
+          </tr> 
+              <tr>    
+                  <td colspan="2" class="content-center">    
+                      <button class="button" mat-raised-button routerLink="/listdemandes" color="primary">Envoyer</button>
+                  </td>    
+              </tr>    
+          </table>    
+      </form>    
+  </mat-card-content>    
+</mat-card>   
