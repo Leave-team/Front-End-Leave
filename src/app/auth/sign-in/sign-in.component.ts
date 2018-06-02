@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,9 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;                    
+  private fomrTentatives: boolean; 
+
+  constructor(
+    private fb: FormBuilder,         
+    //private authService: AuthService 
+  ) {}
 
   ngOnInit() {
+    this.form = this.fb.group({     
+      userName: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+
+  isFieldInvalid(field: string) { 
+    return (
+      (!this.form.get(field).valid && this.form.get(field).touched) ||
+      (this.form.get(field).untouched && this.fomrTentatives)
+    );
+  }
+
+  onSubmit() {
+    if (this.form.valid) {
+      //this.authService.login(this.form.value); 
+    }
+    this.fomrTentatives = true;             
   }
 
 }

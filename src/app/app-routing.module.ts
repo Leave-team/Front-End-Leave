@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'login', component: SignInComponent },
   { path: 'listvals', component: ValidateurComponent },
   { path: 'listcollabs', component: CollaborateurComponent },
-  { path: 'newdemande',component:FormDemandeComponent}
+  { path: 'newdemande',component:FormDemandeComponent},
+  { path: 'login' , component:SignInComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

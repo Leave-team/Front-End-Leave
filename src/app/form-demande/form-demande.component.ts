@@ -34,7 +34,7 @@ export class FormDemandeComponent implements OnInit {
   }
 
   popUpOk(message: string, action='Succès' ) {
-    this.snackBar.open(message+ 'ajoutée', action, {
+    this.snackBar.open( 'La demande : ' +message+ ' est envoyée !', action, {
       duration: 2000,
     });
   }
