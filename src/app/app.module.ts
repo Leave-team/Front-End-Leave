@@ -20,17 +20,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
-
-
-
-const appRoutes: Routes = [
-  { path: 'listdemandes', component: DemandeComponent },
-  { path: 'accueil', component: HomeComponent },
-  { path: 'login', component: SignInComponent },
-  { path: 'listvals', component: ValidateurComponent },
-  { path: 'listcollabs', component: CollaborateurComponent }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
