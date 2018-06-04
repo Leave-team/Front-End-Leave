@@ -9,7 +9,7 @@ import { DemandeComponent } from './demande/demande.component';
 import { FormDemandeComponent } from './form-demande/form-demande.component';
 const routes: Routes = [
   { path: 'listdemandes', component: DemandeComponent },
-  { path: 'accueil', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'login', component: SignInComponent },
   { path: 'listvals', component: ValidateurComponent },
   { path: 'listcollabs', component: CollaborateurComponent },

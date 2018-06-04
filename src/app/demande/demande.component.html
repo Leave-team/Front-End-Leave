@@ -1,4 +1,6 @@
-<div class="mat-elevation-z8">
+<div >
+    <mat-card>
+      <mat-card-content>
     <table mat-table [dataSource]="dataSource">
   
       <!-- description Column -->
@@ -46,6 +48,8 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+  </mat-card-content>
+    </mat-card>
   </div>
   <br>
      <button class='button' mat-raised-button color="primary" routerLink="/newdemande" >Nouvelle demande</button>

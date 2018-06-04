@@ -13,6 +13,6 @@ export class AppComponent {
 
   constructor( public nav: NavbarService, router: Router ) {
     
-    router.navigate(['listdemandes']);
+    router.navigate(['']);
   }
 }
