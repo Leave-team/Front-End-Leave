@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { NavbarService } from '../../services/navbar/navbar.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,16 +12,14 @@ export class SignInComponent implements OnInit {
   form: FormGroup;                    
   private fomrTentatives: boolean; 
 
-  constructor(
-    private fb: FormBuilder,         
-    //private authService: AuthService 
-  ) {}
+  constructor(private fb: FormBuilder, public nav: NavbarService) {}
 
   ngOnInit() {
     this.form = this.fb.group({     
       userName: ['', Validators.required],
       password: ['', Validators.required]
     });
+    this.nav.hide();
   }
 
   isFieldInvalid(field: string) { 
