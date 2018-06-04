@@ -14,12 +14,29 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule,
+ MatIconModule, MatListModule, MatCardModule, MatDatepickerModule,
+MatNativeDateModule, MatRadioModule, MatSelectModule, MatOptionModule,
+MatSlideToggleModule, MatTooltipModule, MatSnackBarModule } from '@angular/material';
 import { RouterModule , Routes } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
+import { FormDemandeComponent } from './form-demande/form-demande.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavbarService } from './services/navbar/navbar.service';
+
+
+
+const appRoutes: Routes = [
+  { path: 'listdemandes', component: DemandeComponent },
+  { path: 'accueil', component: HomeComponent },
+  { path: 'login', component: SignInComponent },
+  { path: 'listvals', component: ValidateurComponent },
+  { path: 'listcollabs', component: CollaborateurComponent },
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +47,8 @@ import { MatMenuModule } from '@angular/material/menu';
     SignInComponent,
     DemandeComponent,
     SignUpComponent,
-    NavbarComponent
+    NavbarComponent,
+    FormDemandeComponent
   ],
   imports: [
     BrowserModule,
@@ -46,9 +64,29 @@ import { MatMenuModule } from '@angular/material/menu';
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    MatMenuModule
+    MatMenuModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatSnackBarModule,
+    MatSlideToggleModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatTooltipModule
   ],
-  providers: [DemandeService],
+  providers: [
+    DemandeService,
+    NavbarService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

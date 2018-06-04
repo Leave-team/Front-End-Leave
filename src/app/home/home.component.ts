@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/observable';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  isLoggedIn$: Observable<boolean>;                  // {1}
+
   constructor() { }
 
   ngOnInit() {
+    
+  }
+
+  onLogout(){
+   
   }
 
 }

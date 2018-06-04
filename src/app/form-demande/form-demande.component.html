@@ -1,0 +1,51 @@
+<mat-card>    
+     
+  <mat-card-title>    
+      Données de la demande congè    
+  </mat-card-title>    
+  
+  <mat-card-content>    
+    <form [formGroup]="formDemande" (submit)="createDemande(formDemande.value)">    
+          <table>    
+              <tr>    
+                  <td colspan="2">    
+                      <mat-form-field class="demo-full-width">    
+                          <input matInput placeholder="Description" formControlName="description" #message>    
+                      </mat-form-field>    
+                  </td>
+              </tr> 
+              
+              
+              <tr>    
+                <td>    
+                    <mat-form-field class="demo-full-width">    
+                        <input matInput [matDatepicker]="pickerDebut" placeholder="Date début" formControlName="dateDebut">    
+                        <mat-datepicker-toggle matSuffix [for]="pickerDebut"></mat-datepicker-toggle>    
+                        <mat-datepicker touchUi="true" #pickerDebut></mat-datepicker>    
+                    </mat-form-field>    
+                </td>
+                <td>    
+                  <mat-form-field class="demo-full-width">    
+                      <input matInput [matDatepicker]="pickerFin" placeholder="Date fin" formControlName="dateFin">    
+                      <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>    
+                      <mat-datepicker touchUi="true" #pickerFin></mat-datepicker>    
+                  </mat-form-field>    
+              </td> 
+            </tr>
+
+            <tr>    
+              <td colspan="2">    
+                  <mat-form-field class="demo-full-width">    
+                      <input type="number" matInput placeholder="Nombre de jours"formControlName="nombreJours">    
+                  </mat-form-field>    
+              </td>
+            </tr>
+              <tr>    
+                  <td colspan="2" class="content-center">    
+                      <button type="submit" class="button" mat-raised-button color="primary" [disabled]="!formDemande.valid" (click)="popUpOk(message.value)" >Envoyer</button>
+                  </td>    
+              </tr>    
+          </table>    
+      </form>    
+  </mat-card-content>    
+</mat-card>   

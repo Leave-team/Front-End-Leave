@@ -1,4 +1,4 @@
-export interface IDemande {
+export class Demande {
 
      
      id: number;
@@ -10,4 +10,8 @@ export interface IDemande {
      motifRefus: string;
      idVal: number;
      idAdmin: number;
+
+     constructor (values: Object = {}) {
+         Object.assign(this, values);
+     }
 }

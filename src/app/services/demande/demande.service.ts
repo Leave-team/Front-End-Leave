@@ -1,24 +1,51 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders }   from '@angular/common/http';
-import { Observable  }   from 'rxjs/Observable';
+import { Observable, of  }   from 'rxjs';
 import 'rxjs/add/operator/map';
-import { catchError, retry } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { IDemande } from '../../models/demande';
+import { Demande } from '../../models/demande';
+import { catchError, map, tap, retry } from 'rxjs/operators';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class DemandeService {
 
+
   private serviceUrl = 'http://localhost:62392/api/demandes';
-  private headers = new Headers({'Content-Type': 'application/json'});
  
   constructor(private http: HttpClient) { }
 
-  getDemande(): Observable<IDemande[]> {
-    return this.http.get<IDemande[]>(this.serviceUrl);
+  
+  //Population du tableaux de demandes.
+  getDemande(): Observable<Demande[]> {
+    return this.http.get<Demande[]>(this.serviceUrl);
+  }
+
+
+  //Méthode pour ajouter une nouvelle demande.
+  createDemande(demande): Observable<Demande> {
+    let body = JSON.stringify(demande);
+    return this.http.post<Demande>(this.serviceUrl, body, httpOptions);
+  }
+
+
+  //Méthode pour supprimer la demande.
+  deleteDemande (demande): Observable<Demande> {
+    const id = typeof demande === 'number' ? demande : demande.id;
+    const url = `${this.serviceUrl}/${id}`;
+    return this.http.delete<Demande>(url, httpOptions)
+  }
+
+
+  //Mettre à jour la demande.
+  updateDemande (demande): Observable<any> {
+    let body = JSON.stringify(demande);
+    return this.http.put(this.serviceUrl, body, httpOptions);
   }
 
 
