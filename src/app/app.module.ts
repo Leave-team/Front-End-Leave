@@ -18,7 +18,6 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,
  MatIconModule, MatListModule, MatCardModule, MatDatepickerModule,
 MatNativeDateModule, MatRadioModule, MatSelectModule, MatOptionModule,
 MatSlideToggleModule, MatTooltipModule, MatSnackBarModule } from '@angular/material';
-import { RouterModule , Routes } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
@@ -26,17 +25,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { FormDemandeComponent } from './form-demande/form-demande.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarService } from './services/navbar/navbar.service';
-
-
-
-const appRoutes: Routes = [
-  { path: 'listdemandes', component: DemandeComponent },
-  { path: 'accueil', component: HomeComponent },
-  { path: 'login', component: SignInComponent },
-  { path: 'listvals', component: ValidateurComponent },
-  { path: 'listcollabs', component: CollaborateurComponent },
-];
-
+import { FromCollaborateurComponent } from './from-collaborateur/from-collaborateur.component';
+import { CollaborateurService } from './services/collaborateur.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +39,8 @@ const appRoutes: Routes = [
     DemandeComponent,
     SignUpComponent,
     NavbarComponent,
-    FormDemandeComponent
+    FormDemandeComponent,
+    FromCollaborateurComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +73,8 @@ const appRoutes: Routes = [
     MatSlideToggleModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    FlexLayoutModule
   ],
   providers: [
     DemandeService,

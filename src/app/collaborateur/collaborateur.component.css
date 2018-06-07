@@ -1,0 +1,9 @@
+table {
+    width: 100%;
+  }
+  mat-card-footer{
+    padding: 10px;
+  }
+  .center{
+    text-align: center;
+  }

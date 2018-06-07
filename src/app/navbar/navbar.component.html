@@ -1,12 +1,13 @@
 
 
-<mat-toolbar color="primary">
+<mat-toolbar color="primary"*ngIf="nav.visible" >
   <span>
    My Congès
   </span>
   <span class="fill-remaining-space"></span>
   <button mat-button routerLink="/listdemandes">Mes demandes</button>
   <button mat-button routerLink="/newdemande">Déposer une demandes</button>
+  <button mat-button routerLink="/listcollabs">Collaborateur</button>
   <button mat-button routerLink="/login">Login</button>
   <button mat-button (click)="onLogout()">Logout</button>
 </mat-toolbar>

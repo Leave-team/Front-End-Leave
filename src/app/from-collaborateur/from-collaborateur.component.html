@@ -1,0 +1,55 @@
+<mat-card>
+  <mat-card-title>
+  </mat-card-title>
+  <mat-card-content>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div fxLayout="column" fxLayoutGap="40px" fxLayoutAlign="center center">
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center center">
+          <div fxLayout="column" fxLayoutGap="1Opx" fxLayoutAlign="center center">
+            <mat-form-field>
+              <input matInput ngModel name="firstName" placeholder="Votre nom" required #txtNom="ngModel">
+              <mat-error *ngIf="txtNom.hasError('required')">Veuillez saisir votre nom.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput ngModel name="lastName" placeholder="Votre prénom" required #txPrenom="ngModel">
+              <mat-error *ngIf="txPrenom.hasError('required')">Veuillez saisir votre prénom.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput ngModel name="matricule" placeholder="Votre matricule" required #txtMatricule="ngModel">
+              <mat-error *ngIf="txtMatricule.hasError('required')">Veuillez saisir votre matricule.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput  placeholder="Votre Login" ngModel name="Login" required  #txtLogin="ngModel">
+                <mat-error *ngIf="txtLogin.hasError('required')">Veuillez saisir votre Login.</mat-error>
+              </mat-form-field>
+          </div>
+          <div fxLayout="column" fxLayoutGap="1Opx" fxLayoutAlign="center center">
+            <mat-form-field>
+              <input matInput ngModel name="poste" placeholder="Votre poste" required required #txtPoste="ngModel">
+              <mat-error *ngIf="txtPoste.hasError('required')">Veuillez saisir votre Poste.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput ngModel name="grade" placeholder="Votre grade" required required #txtGrade="ngModel">
+              <mat-error *ngIf="txtGrade.hasError('required')">Veuillez saisir votre grade.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput ngModel name="dateEmbauche" [matDatepicker]="myDatepicker" required placeholder="Date d'embauche" #txtDate="ngModel">
+              <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+              <mat-datepicker #myDatepicker></mat-datepicker>
+              <mat-error *ngIf="txtDate.hasError('required')">Veuillez saisir votre date d'embauche.</mat-error>
+            </mat-form-field>
+            <mat-form-field hintLabel="Doit être d'au moins 6 caractères">
+                <input matInput required minlength="8" type="password" placeholder="Votre mot de passe" ngModel name="password" #pwd="ngModel">
+                <mat-hint align="end">{{pwd.value?.length}}/6</mat-hint>
+                <mat-error>Le mot de passe doit contenir au moins 6 caractères</mat-error>
+              </mat-form-field>
+          </div>
+
+        </div>
+        <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Enregistrer</button>
+      </div>
+
+    </form>
+
+  </mat-card-content>
+</mat-card>

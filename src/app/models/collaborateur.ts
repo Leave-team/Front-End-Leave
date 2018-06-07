@@ -1,4 +1,5 @@
-export class Administrateur {
+
+export class Collaborateur  {
     id: number;
     firstName: string;
     lastName: string;
