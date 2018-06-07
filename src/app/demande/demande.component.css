@@ -2,7 +2,7 @@ table {
     width: 80%;
   }
   .button {
-    left: 13px;
+    left: 243px;
   }
   .mat-card {    
     text-align: -webkit-center;    
@@ -12,4 +12,4 @@ mat-card {
   max-width: 80%;    
   margin: 2em auto;    
   text-align: center;    
-}    
+}   

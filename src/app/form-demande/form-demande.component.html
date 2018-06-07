@@ -10,7 +10,8 @@
               <tr>    
                   <td colspan="2">    
                       <mat-form-field class="demo-full-width">    
-                          <input matInput placeholder="Description" formControlName="description" #message>    
+                          <input matInput  maxlength="20" placeholder="Description" formControlName="description" #message>
+                          <mat-hint align="end">{{message.value.length}} / 20</mat-hint>
                       </mat-form-field>    
                   </td>
               </tr> 
@@ -19,14 +20,14 @@
               <tr>    
                 <td>    
                     <mat-form-field class="demo-full-width">    
-                        <input matInput [matDatepicker]="pickerDebut" placeholder="Date début" formControlName="dateDebut">    
+                        <input matInput [matDatepicker]="pickerDebut" [matDatepickerFilter]="filtreWekend" placeholder="Date début" formControlName="dateDebut" [min]="date.value">    
                         <mat-datepicker-toggle matSuffix [for]="pickerDebut"></mat-datepicker-toggle>    
                         <mat-datepicker touchUi="true" #pickerDebut></mat-datepicker>    
                     </mat-form-field>    
                 </td>
                 <td>    
                   <mat-form-field class="demo-full-width">    
-                      <input matInput [matDatepicker]="pickerFin" placeholder="Date fin" formControlName="dateFin">    
+                      <input matInput [matDatepicker]="pickerFin" placeholder="Date fin" [matDatepickerFilter]="filtreWekend" formControlName="dateFin"[min]="formDemande.controls.dateDebut.value">    
                       <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>    
                       <mat-datepicker touchUi="true" #pickerFin></mat-datepicker>    
                   </mat-form-field>    
@@ -36,7 +37,7 @@
             <tr>    
               <td colspan="2">    
                   <mat-form-field class="demo-full-width">    
-                      <input type="number" matInput placeholder="Nombre de jours"formControlName="nombreJours">    
+                  <input type="number" matInput placeholder="Nombre de jours"  formControlName="nombreJours" [value]="calculateDays()" >    
                   </mat-form-field>    
               </td>
             </tr>

@@ -13,27 +13,50 @@ import { NavbarService } from '../services/navbar/navbar.service';
 })
 export class FormDemandeComponent implements OnInit {
 
-   demande: Demande;
+  demande: Demande;
   
+   date = new FormControl(new Date());
+
+
+   filtreWekend = (d: Date): boolean => {
+    const day = d.getDay();
+    // Eviter les jours du weekend
+    return day !== 0 && day !== 6;
+  }
+
   formDemande = new FormGroup({
     description: new FormControl('',[Validators.required]),
     dateDebut: new FormControl([Validators.required]),
     dateFin: new FormControl([Validators.required]),
-    nombreJours: new FormControl(null,[Validators.required])
+    nombreJours: new FormControl(null, [Validators.required])
   });
 
   constructor(private demandeService : DemandeService, public snackBar: MatSnackBar, public nav : NavbarService ) { }
 
+  
   ngOnInit() {
     this.nav.show();
   }
   
+
   //Méthode pour envoer un nouvel enregistrement
   createDemande(formDemande : any){
     this.demande= new Demande(formDemande);
     console.log(this.demande);
     this.demandeService.createDemande(this.demande).subscribe();
   }
+
+
+
+  calculateDays(): number{
+
+    let nbdays : number;;
+    nbdays = Math.ceil((this.formDemande.controls.dateFin.value - this.formDemande.controls.dateDebut.value)/84600000);
+    return nbdays
+  }
+
+
+
 
   popUpOk(message: string, action='Succès' ) {
     this.snackBar.open( 'La demande : ' +message+ ' est envoyée !', action, {
