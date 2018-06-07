@@ -43,8 +43,8 @@ export class DemandeService {
 
 
   //Mettre à jour la demande.
-  updateDemande (demande): Observable<any> {
-    let body = JSON.stringify(demande);
+  updateDemande (demandeId : string): Observable<any> {
+    let body = JSON.stringify(demandeId);
     return this.http.put(this.serviceUrl, body, httpOptions);
   }
 

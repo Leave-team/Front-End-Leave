@@ -14,8 +14,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatDatepickerModule, MatNativeDateModule, MatRadioModule, MatSelectModule, MatOptionModule, MatSlideToggleModule, MatTooltipModule, MatSnackBarModule } from '@angular/material';
-import { RouterModule , Routes } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
@@ -23,7 +21,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { FormDemandeComponent } from './form-demande/form-demande.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarService } from './services/navbar/navbar.service';
-
+import { Routes } from '@angular/router';
+import { MatButtonModule,MatIconModule,MatToolbarModule,MatListModule, MatCardModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, MatTooltipModule } from '@angular/material';
 
 
 const appRoutes: Routes = [
@@ -55,7 +54,6 @@ const appRoutes: Routes = [
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
-    MatSidenavModule,
     MatIconModule,
     MatListModule,
     MatFormFieldModule,
@@ -71,14 +69,11 @@ const appRoutes: Routes = [
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatOptionModule,
     MatSnackBarModule,
-    MatSlideToggleModule,
+    MatTooltipModule,
     FormsModule,
-    ReactiveFormsModule,
-    MatTooltipModule
+    ReactiveFormsModule
+
   ],
   providers: [
     DemandeService,
