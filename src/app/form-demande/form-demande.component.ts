@@ -4,6 +4,7 @@ import { Demande } from '../models/demande';
 import { DemandeService } from '../services/demande/demande.service';
 import {Observable} from 'rxjs/Rx';
 import {MatSnackBar} from '@angular/material';
+import { NavbarService } from '../services/navbar/navbar.service';
 
 @Component({
   selector: 'app-form-demande',
@@ -21,9 +22,10 @@ export class FormDemandeComponent implements OnInit {
     nombreJours: new FormControl(null,[Validators.required])
   });
 
-  constructor(private demandeService : DemandeService, public snackBar: MatSnackBar ) { }
+  constructor(private demandeService : DemandeService, public snackBar: MatSnackBar, public nav : NavbarService ) { }
 
   ngOnInit() {
+    this.nav.show();
   }
   
   //Méthode pour envoer un nouvel enregistrement

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/observable';
+import { NavbarService } from '../services/navbar/navbar.service';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,12 @@ import { Observable } from 'rxjs/observable';
 })
 export class HomeComponent implements OnInit {
 
-  isLoggedIn$: Observable<boolean>;                  // {1}
+  isLoggedIn$: Observable<boolean>;
 
-  constructor() { }
+  constructor(public nav : NavbarService) { }
 
   ngOnInit() {
-    
+    this.nav.show();
   }
 
   onLogout(){

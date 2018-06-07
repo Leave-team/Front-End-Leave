@@ -5,6 +5,7 @@ import { DataSource } from '@angular/cdk/collections';
 import { Observable } from "rxjs/observable";
 import { Demande } from '../models/demande';
 import { DemandeService } from '../services/demande/demande.service';
+import { NavbarService } from '../services/navbar/navbar.service';
 
 
 @Component({
@@ -19,8 +20,11 @@ export class DemandeComponent implements OnInit {
   dataSource = new DemandeDataSource(this.demandeService);
   displayedColumns = ['description', 'dateDebut', 'dateFin', 'nombreJours', 'decision', 'motifRefus', 'actions'];
 
-  constructor(private demandeService: DemandeService){}
-  ngOnInit() {}
+  constructor(private demandeService: DemandeService, public nav : NavbarService){}
+
+  ngOnInit() {
+    this.nav.show();
+  }
 
 }
 
