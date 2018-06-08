@@ -1,13 +1,29 @@
-
-
-<mat-toolbar color="primary"*ngIf="nav.visible" >
-  <span>
-   My Congès
-  </span>
-  <span class="fill-remaining-space"></span>
-  <button mat-button routerLink="/listdemandes">Mes demandes</button>
-  <button mat-button routerLink="/newdemande">Déposer une demandes</button>
-  <button mat-button routerLink="/listcollabs">Collaborateur</button>
-  <button mat-button routerLink="/login">Login</button>
-  <button mat-button (click)="onLogout()">Logout</button>
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div>
+    <a routerLink="/">My Congès</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+      <li>
+        <a routerLink="/listdemandes">Mes demandes</a>
+      </li>
+      <li>
+        <a routerLink="/newdemande">Déposer une demandes</a>
+      </li>
+      <li>
+        <a routerLink="/listcollabs">Collaborateur</a>
+      </li>
+      <li>
+        <a routerLink="/login">Login</a>
+      </li>
+      <li>
+        <a (click)="onLogout()">Logout</a>
+      </li>
+    </ul>
+  </div>
 </mat-toolbar>

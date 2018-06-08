@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { NavbarService } from './services/navbar/navbar.service';
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-root',
@@ -9,10 +6,5 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
 
-  constructor( public nav: NavbarService, router: Router ) {
-    
-    router.navigate(['']);
-  }
 }

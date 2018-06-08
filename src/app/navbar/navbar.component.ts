@@ -1,27 +1,21 @@
-import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { NavbarService } from '../services/navbar/navbar.service';
-import { DemandeComponent } from '../demande/demande.component';
-
-
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 @Component({
   selector: 'nav-bar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
-  
- 
-  isHandset$: Observable<Boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches)
-    );
-    
-  constructor(private breakpointObserver: BreakpointObserver, public nav: NavbarService) {}
+export class NavbarComponent implements  OnInit{
+  @Output() sidenavToggle = new EventEmitter<void>();
 
-  
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  onToggleSidenav() {
+    this.sidenavToggle.emit();
+  }
+
   }
 
 

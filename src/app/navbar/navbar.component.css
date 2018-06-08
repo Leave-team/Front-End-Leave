@@ -1,8 +1,15 @@
-.sidenav-container {
-  height: 100%;
+a {
+  text-decoration: none;
+  color: white;
 }
 
-.sidenav {
-  width: 200px;
-  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+a:hover,
+a:active {
+  color: lightgray;
+}
+
+.navigation-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
