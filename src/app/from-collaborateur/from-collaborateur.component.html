@@ -4,7 +4,7 @@
   <mat-card-content>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <div fxLayout="column" fxLayoutGap="40px" fxLayoutAlign="center center">
-        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center center">
+        <div fxLayout.lt-md="column"  fxLayoutGap.gt-xs="40px" fxLayoutAlign="center center">
           <div fxLayout="column" fxLayoutGap="1Opx" fxLayoutAlign="center center">
             <mat-form-field>
               <input matInput ngModel name="firstName" placeholder="Votre nom" required #txtNom="ngModel">
