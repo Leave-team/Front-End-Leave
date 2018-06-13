@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { NavbarService } from '../../services/navbar/navbar.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,20 +10,19 @@ import { NavbarService } from '../../services/navbar/navbar.service';
 })
 export class SignInComponent implements OnInit {
 
-  form: FormGroup;                    
-  private fomrTentatives: boolean; 
+  form: FormGroup;
+  private fomrTentatives: boolean;
 
-  constructor(private fb: FormBuilder, public nav: NavbarService) {}
+  constructor(private fb: FormBuilder, private authService: AuthService ) {}
 
   ngOnInit() {
-    this.form = this.fb.group({     
+    this.form = this.fb.group({
       userName: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.nav.hide();
   }
 
-  isFieldInvalid(field: string) { 
+  isFieldInvalid(field: string) {
     return (
       (!this.form.get(field).valid && this.form.get(field).touched) ||
       (this.form.get(field).untouched && this.fomrTentatives)
@@ -31,9 +31,12 @@ export class SignInComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      //this.authService.login(this.form.value); 
+      this.authService.login({
+        email: this.form.value.userName,
+        password: this.form.value.password
+      });
     }
-    this.fomrTentatives = true;             
+    this.fomrTentatives = true;
   }
 
 }
