@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class CollaborateurService {
 
-  private serviceUrl = 'http://localhost:62330/api/collaborateur';
+  private serviceUrl = 'http://localhost:62392/api/collaborateur';
   constructor(private http: HttpClient) { }
 
   getCollaborateur(): Observable<Collaborateur[]> {

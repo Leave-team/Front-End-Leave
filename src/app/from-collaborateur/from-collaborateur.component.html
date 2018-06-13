@@ -38,10 +38,10 @@
               <mat-datepicker #myDatepicker></mat-datepicker>
               <mat-error *ngIf="txtDate.hasError('required')">Veuillez saisir votre date d'embauche.</mat-error>
             </mat-form-field>
-            <mat-form-field hintLabel="Doit être d'au moins 6 caractères">
+            <mat-form-field hintLabel="Doit être d'au moins 8 caractères">
                 <input matInput required minlength="8" type="password" placeholder="Votre mot de passe" ngModel name="password" #pwd="ngModel">
-                <mat-hint align="end">{{pwd.value?.length}}/6</mat-hint>
-                <mat-error>Le mot de passe doit contenir au moins 6 caractères</mat-error>
+                <mat-hint align="end">{{pwd.value?.length}}/8</mat-hint>
+                <mat-error>Le mot de passe doit contenir au moins 8 caractères</mat-error>
               </mat-form-field>
           </div>
 
