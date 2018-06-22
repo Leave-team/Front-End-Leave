@@ -8,18 +8,20 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { DemandeComponent } from './demande/demande.component';
 import { FormDemandeComponent } from './form-demande/form-demande.component';
 import { FromCollaborateurComponent } from './from-collaborateur/from-collaborateur.component';
+import { AuthGuard } from './auth.guard';
 const routes: Routes = [
-  { path: 'listdemandes', component: DemandeComponent },
+  { path: 'listdemandes', component: DemandeComponent, canActivate: [AuthGuard] },
   { path: '', component: HomeComponent },
   { path: 'login', component: SignInComponent },
-  { path: 'listvals', component: ValidateurComponent },
-  { path: 'listcollabs', component: CollaborateurComponent },
-  { path: 'frmCollaborateur', component: FromCollaborateurComponent },
-  { path: 'newdemande', component: FormDemandeComponent},
+  { path: 'listvals', component: ValidateurComponent, canActivate: [AuthGuard] },
+  { path: 'listcollabs', component: CollaborateurComponent, canActivate: [AuthGuard]  },
+  { path: 'frmCollaborateur', component: FromCollaborateurComponent, canActivate: [AuthGuard] },
+  { path: 'newdemande', component: FormDemandeComponent, canActivate: [AuthGuard]},
   { path: 'login' , component: SignInComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }
